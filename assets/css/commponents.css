@@ -1,0 +1,494 @@
+/* ==================================================
+   BBDU STUDY HUB - COMPONENTS CSS
+   Purpose: Reusable, modular components and utilities.
+   Theme: Modern, Premium, Glassmorphism, Gen-Z Inspired
+   ================================================== */
+
+/* ==================================================
+   1. COMPONENT VARIABLES (Fallback & Specifics)
+   ================================================== */
+:root {
+    /* Base Fallbacks (In case style.css is not fully loaded first) */
+    --c-primary: #2563EB;
+    --c-secondary: #3B82F6;
+    --c-accent: #60A5FA;
+    --c-success: #22C55E;
+    --c-info: #0EA5E9;
+    --c-warning: #F59E0B;
+    --c-error: #EF4444;
+    --c-bg: #0B1120;
+    --c-card-bg: rgba(17, 24, 39, 0.6);
+    --c-border: rgba(255, 255, 255, 0.1);
+    --c-text-main: #FFFFFF;
+    --c-text-muted: #CBD5E1;
+
+    /* Component Specific Variables */
+    --btn-radius: 50px;
+    --card-radius: 20px;
+    --badge-radius: 30px;
+    --input-radius: 12px;
+    --glass-blur: blur(12px);
+    
+    /* Social Brand Colors */
+    --brand-instagram: #E1306C;
+    --brand-linkedin: #0077B5;
+    --brand-github: #333333;
+    --brand-telegram: #0088CC;
+    --brand-email: #EA4335;
+}
+
+body.theme-light {
+    --c-card-bg: rgba(248, 250, 252, 0.7);
+    --c-border: rgba(0, 0, 0, 0.08);
+    --c-text-main: #1E293B;
+    --c-text-muted: #64748B;
+    --brand-github: #181717;
+}
+
+/* ==================================================
+   2. BUTTON COMPONENTS
+   ================================================== */
+.c-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: var(--btn-radius);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    gap: 8px;
+}
+
+/* Base button sizes */
+.c-btn-md { padding: 12px 24px; font-size: 1rem; }
+.c-btn-sm { padding: 8px 16px; font-size: 0.875rem; }
+.c-btn-lg { padding: 16px 32px; font-size: 1.125rem; }
+.c-btn-icon { width: 44px; height: 44px; padding: 0; border-radius: 50%; }
+
+/* Primary Button */
+.c-btn-primary {
+    background: linear-gradient(135deg, var(--c-primary), var(--c-secondary));
+    color: #FFFFFF;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+.c-btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+}
+.c-btn-primary:active:not(:disabled) {
+    transform: translateY(1px) scale(0.98);
+}
+
+/* Secondary Button */
+.c-btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--c-text-main);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--c-border);
+}
+.c-btn-secondary:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--c-accent);
+}
+
+/* Outline Button */
+.c-btn-outline {
+    background: transparent;
+    color: var(--c-text-main);
+    border: 2px solid var(--c-primary);
+}
+.c-btn-outline:hover:not(:disabled) {
+    background: var(--c-primary);
+    color: #FFFFFF;
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
+}
+
+/* Ghost Button */
+.c-btn-ghost {
+    background: transparent;
+    color: var(--c-text-main);
+}
+.c-btn-ghost:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Disabled State */
+.c-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    filter: grayscale(100%);
+    box-shadow: none;
+}
+
+/* ==================================================
+   3. CARD COMPONENTS
+   ================================================== */
+.c-card {
+    background: var(--c-card-bg);
+    border: 1px solid var(--c-border);
+    border-radius: var(--card-radius);
+    padding: 24px;
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.c-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(96, 165, 250, 0.3);
+}
+
+/* Specific Card Types */
+.c-card-feature { text-align: center; }
+.c-card-course { padding: 32px 24px; }
+.c-card-info { background: rgba(37, 99, 235, 0.05); border-color: rgba(37, 99, 235, 0.2); }
+.c-card-coming-soon::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.03));
+    pointer-events: none;
+}
+
+/* ==================================================
+   4. BADGE COMPONENTS
+   ================================================== */
+.c-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: var(--badge-radius);
+    white-space: nowrap;
+}
+
+.c-badge-new { background: rgba(34, 197, 94, 0.15); color: var(--c-success); border: 1px solid rgba(34, 197, 94, 0.3); }
+.c-badge-latest { background: rgba(14, 165, 233, 0.15); color: var(--c-info); border: 1px solid rgba(14, 165, 233, 0.3); }
+.c-badge-popular { background: rgba(239, 68, 68, 0.15); color: var(--c-error); border: 1px solid rgba(239, 68, 68, 0.3); }
+.c-badge-coming-soon { background: rgba(245, 158, 11, 0.15); color: var(--c-warning); border: 1px solid rgba(245, 158, 11, 0.3); }
+.c-badge-premium { 
+    background: linear-gradient(135deg, #8B5CF6, #D946EF); 
+    color: #FFFFFF; 
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+    border: none;
+}
+
+/* ==================================================
+   5. SECTION TITLE COMPONENTS
+   ================================================== */
+.c-sec-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--c-text-main);
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.c-sec-title-gradient {
+    background: linear-gradient(to right, var(--c-text-main), var(--c-accent), var(--c-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.c-sec-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--c-primary), var(--c-accent));
+}
+
+.c-sec-subtitle { font-size: 1.25rem; font-weight: 600; color: var(--c-accent); margin-bottom: 1rem; }
+.c-sec-desc { font-size: 1rem; color: var(--c-text-muted); max-width: 600px; margin: 0 auto; }
+
+/* ==================================================
+   6. NAVIGATION COMPONENTS
+   ================================================== */
+.c-nav-link {
+    color: var(--c-text-muted);
+    font-weight: 500;
+    position: relative;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+}
+
+.c-nav-link:hover, .c-nav-link.active { color: var(--c-text-main); }
+.c-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--c-primary);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+.c-nav-link:hover::after, .c-nav-link.active::after { width: 100%; }
+
+/* ==================================================
+   7. THEME TOGGLE & LOGO COMPONENTS
+   ================================================== */
+.c-theme-toggle {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--c-border);
+    color: var(--c-text-main);
+    display: flex; justify-content: center; align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.c-theme-toggle:hover {
+    background: var(--c-primary);
+    color: #FFFFFF;
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
+    transform: rotate(15deg);
+}
+.c-theme-toggle:active { transform: scale(0.9); }
+
+/* Logo */
+.c-logo-box { display: flex; align-items: center; gap: 12px; }
+.c-logo-img { width: 40px; height: 40px; border-radius: 8px; object-fit: cover; }
+.c-logo-text { font-size: 1.5rem; font-weight: 700; color: var(--c-text-main); letter-spacing: -0.5px; }
+
+/* ==================================================
+   8. INFO & FEATURE BOXES
+   ================================================== */
+.c-feature-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24px;
+    transition: all 0.3s ease;
+}
+.c-feature-icon {
+    width: 60px; height: 60px;
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--c-primary);
+    border-radius: 16px;
+    display: flex; justify-content: center; align-items: center;
+    margin-bottom: 16px;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+.c-feature-box:hover .c-feature-icon { transform: scale(1.1) rotate(5deg); background: var(--c-primary); color: #FFF; }
+
+.c-info-box {
+    background: var(--c-card-bg);
+    border-radius: var(--card-radius);
+    padding: 20px;
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--c-border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================================================
+   9. SOCIAL MEDIA ICONS
+   ================================================== */
+.c-social-icon {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--c-border);
+    display: inline-flex; justify-content: center; align-items: center;
+    color: var(--c-text-muted);
+    transition: all 0.3s ease;
+}
+.c-social-icon:hover { color: #FFFFFF; transform: translateY(-3px); }
+.c-social-icon.instagram:hover { background: var(--brand-instagram); border-color: var(--brand-instagram); box-shadow: 0 0 15px var(--brand-instagram); }
+.c-social-icon.linkedin:hover { background: var(--brand-linkedin); border-color: var(--brand-linkedin); box-shadow: 0 0 15px var(--brand-linkedin); }
+.c-social-icon.github:hover { background: var(--brand-github); border-color: var(--brand-github); box-shadow: 0 0 15px var(--brand-github); }
+.c-social-icon.telegram:hover { background: var(--brand-telegram); border-color: var(--brand-telegram); box-shadow: 0 0 15px var(--brand-telegram); }
+.c-social-icon.email:hover { background: var(--brand-email); border-color: var(--brand-email); box-shadow: 0 0 15px var(--brand-email); }
+
+/* ==================================================
+   10. FOOTER COMPONENTS
+   ================================================== */
+.c-footer-title { color: var(--c-text-main); font-size: 1.25rem; font-weight: 600; margin-bottom: 1.5rem; }
+.c-footer-text { color: var(--c-text-muted); line-height: 1.6; }
+.c-footer-link { color: var(--c-text-muted); transition: color 0.3s ease; display: inline-block; }
+.c-footer-link:hover { color: var(--c-primary); transform: translateX(4px); }
+.c-copyright { color: var(--c-text-muted); font-size: 0.875rem; text-align: center; margin-top: 2rem; border-top: 1px solid var(--c-border); padding-top: 1.5rem; }
+
+/* ==================================================
+   11. SCROLL TO TOP & LOADER
+   ================================================== */
+.c-scroll-top {
+    position: fixed; bottom: 30px; right: 30px;
+    width: 45px; height: 45px;
+    background: var(--c-primary); color: #FFF;
+    border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+    cursor: pointer;
+    opacity: 0; visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 99;
+}
+.c-scroll-top.visible { opacity: 1; visibility: visible; }
+.c-scroll-top:hover { transform: translateY(-5px); box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6); }
+
+.c-loader {
+    width: 40px; height: 40px;
+    border: 3px solid rgba(37, 99, 235, 0.2);
+    border-top-color: var(--c-primary);
+    border-radius: 50%;
+    animation: loader-spin 1s linear infinite;
+    margin: 0 auto;
+}
+@keyframes loader-spin { to { transform: rotate(360deg); } }
+
+/* ==================================================
+   12. ALERT BOXES
+   ================================================== */
+.c-alert {
+    padding: 16px 20px;
+    border-radius: var(--input-radius);
+    border-left: 4px solid;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    backdrop-filter: var(--glass-blur);
+    display: flex; align-items: center; gap: 12px;
+}
+.c-alert-success { background: rgba(34, 197, 94, 0.1); border-color: var(--c-success); color: var(--c-success); }
+.c-alert-info { background: rgba(14, 165, 233, 0.1); border-color: var(--c-info); color: var(--c-info); }
+.c-alert-warning { background: rgba(245, 158, 11, 0.1); border-color: var(--c-warning); color: var(--c-warning); }
+.c-alert-error { background: rgba(239, 68, 68, 0.1); border-color: var(--c-error); color: var(--c-error); }
+
+/* ==================================================
+   13. TOOLTIPS
+   ================================================== */
+[data-tooltip] {
+    position: relative;
+    cursor: help;
+}
+[data-tooltip]::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 120%; left: 50%; transform: translateX(-50%) translateY(10px);
+    background: #1E293B; color: #FFF;
+    padding: 6px 12px; font-size: 0.75rem; font-weight: 500;
+    border-radius: 6px; white-space: nowrap;
+    opacity: 0; visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+[data-tooltip]:hover::before { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+
+/* ==================================================
+   14. INPUT COMPONENTS (FORMS)
+   ================================================== */
+.c-input-group { margin-bottom: 1rem; display: flex; flex-direction: column; gap: 6px; }
+.c-label { font-size: 0.875rem; font-weight: 500; color: var(--c-text-muted); }
+
+.c-input, .c-textarea, .c-select {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--c-border);
+    border-radius: var(--input-radius);
+    color: var(--c-text-main);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+.c-input:focus, .c-textarea:focus, .c-select:focus {
+    outline: none;
+    border-color: var(--c-primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+}
+.c-textarea { resize: vertical; min-height: 100px; }
+
+/* Search Input Ready */
+.c-input-search { padding-left: 40px; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23CBD5E1" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>'); background-repeat: no-repeat; background-position: 12px center; }
+
+/* Radio & Checkbox */
+.c-checkbox-group, .c-radio-group { display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--c-text-muted); font-size: 0.95rem; }
+.c-checkbox, .c-radio { appearance: none; width: 18px; height: 18px; border: 2px solid var(--c-border); background: rgba(255, 255, 255, 0.05); cursor: pointer; transition: all 0.2s ease; position: relative; display: flex; justify-content: center; align-items: center; }
+.c-checkbox { border-radius: 4px; }
+.c-radio { border-radius: 50%; }
+.c-checkbox:checked, .c-radio:checked { background: var(--c-primary); border-color: var(--c-primary); }
+.c-checkbox:checked::after { content: '✔'; font-size: 10px; color: #FFF; }
+.c-radio:checked::after { content: ''; width: 8px; height: 8px; background: #FFF; border-radius: 50%; }
+
+/* ==================================================
+   15. LINKS & DIVIDERS
+   ================================================== */
+.c-link-anim { color: var(--c-primary); text-decoration: none; position: relative; font-weight: 500; }
+.c-link-anim::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: var(--c-primary); transition: width 0.3s ease; }
+.c-link-anim:hover::after { width: 100%; }
+
+.c-divider { height: 1px; background: var(--c-border); width: 100%; margin: 2rem 0; }
+.c-divider-gradient { height: 2px; background: linear-gradient(90deg, transparent, var(--c-primary), transparent); width: 100%; margin: 2rem 0; opacity: 0.5; }
+
+/* ==================================================
+   16. SHADOW & BORDER UTILITIES
+   ================================================== */
+.u-shadow-sm { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
+.u-shadow-md { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); }
+.u-shadow-lg { box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25); }
+.u-shadow-glow { box-shadow: 0 0 20px rgba(37, 99, 235, 0.3); }
+
+.u-rounded-sm { border-radius: 8px; }
+.u-rounded-md { border-radius: var(--input-radius); }
+.u-rounded-lg { border-radius: var(--card-radius); }
+.u-rounded-full { border-radius: 50px; }
+
+/* ==================================================
+   17. ANIMATION UTILITIES
+   ================================================== */
+.u-fade-in { animation: fadeIn 0.5s ease-in forwards; }
+.u-slide-up { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.u-slide-down { animation: slideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.u-scale { transition: transform 0.3s ease; }
+.u-scale:hover { transform: scale(1.05); }
+.u-float { animation: floatAnim 4s ease-in-out infinite; }
+.u-rotate:hover { transform: rotate(5deg); }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes floatAnim { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
+
+/* ==================================================
+   18. SPACING & DISPLAY UTILITIES
+   ================================================== */
+.u-m-0 { margin: 0 !important; }
+.u-mt-1 { margin-top: 0.5rem; } .u-mb-1 { margin-bottom: 0.5rem; }
+.u-mt-2 { margin-top: 1rem; }   .u-mb-2 { margin-bottom: 1rem; }
+.u-mt-3 { margin-top: 2rem; }   .u-mb-3 { margin-bottom: 2rem; }
+
+.u-p-0 { padding: 0 !important; }
+.u-p-1 { padding: 0.5rem; }
+.u-p-2 { padding: 1rem; }
+.u-p-3 { padding: 2rem; }
+
+.u-d-flex { display: flex; }
+.u-d-grid { display: grid; }
+.u-flex-column { flex-direction: column; }
+.u-align-center { align-items: center; }
+.u-justify-center { justify-content: center; }
+.u-space-between { justify-content: space-between; }
+.u-gap-1 { gap: 0.5rem; }
+.u-gap-2 { gap: 1rem; }
+.u-gap-3 { gap: 2rem; }
+.u-text-center { text-align: center; }

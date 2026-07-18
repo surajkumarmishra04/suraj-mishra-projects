@@ -1,0 +1,341 @@
+/* ==================================================
+   BBDU STUDY HUB - RESPONSIVE CSS
+   Mobile-First & Comprehensive Breakpoints
+   ================================================== */
+
+/* ==================================================
+   1. GLOBAL RESPONSIVE RULES & SAFEGUARDS
+   ================================================== */
+html, body {
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    width: 100%;
+    -webkit-text-size-adjust: 100%; /* Prevents text size changes on orientation change */
+}
+
+img, svg, video, canvas {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+* {
+    word-break: break-word; /* Prevents text overflow */
+}
+
+/* ==================================================
+   2. LARGE DESKTOP (1920px and above)
+   ================================================== */
+@media screen and (min-width: 1920px) {
+    .section-container, 
+    .header-container, 
+    .cta-container, 
+    .footer-container {
+        max-width: 1600px; /* Expands container for ultrawide screens */
+    }
+
+    .hero-title {
+        font-size: clamp(4.5rem, 5vw, 6.5rem);
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+        max-width: 900px;
+    }
+}
+
+/* ==================================================
+   3. DESKTOP BASE GRID OVERRIDES (Up to 1440px)
+   ================================================== */
+@media screen and (min-width: 993px) {
+    /* 4 Cards in one row strictly for Desktop */
+    .rounded-cards-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    /* Coming Soon & Features grids */
+    .course-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 cards per row for balanced layout */
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .footer-container {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+}
+
+/* ==================================================
+   4. LAPTOP (Max-width: 1366px)
+   ================================================== */
+@media screen and (max-width: 1366px) {
+    .section-container {
+        padding: 0 3rem;
+    }
+
+    .hero-title {
+        font-size: clamp(3rem, 5vw, 4.5rem);
+    }
+    
+    .course-details {
+        padding: 2.5rem;
+    }
+}
+
+/* ==================================================
+   5. SMALL LAPTOP / LARGE TABLET (Max-width: 1200px)
+   ================================================== */
+@media screen and (max-width: 1200px) {
+    .nav-list {
+        gap: 20px; /* Reduce spacing between navigation items */
+    }
+
+    .brand-name {
+        font-size: 1.3rem;
+    }
+
+    /* Adjust grids to maintain comfort without squishing */
+    .course-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ==================================================
+   6. TABLET LANDSCAPE & PORTRAIT (Max-width: 992px)
+   ================================================== */
+@media screen and (max-width: 992px) {
+    section {
+        padding: 80px 0;
+    }
+
+    /* Stack Course Details */
+    .course-details {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    /* 2 Cards per row for Tablet */
+    .rounded-cards-grid,
+    .course-grid,
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    /* 2 Columns for Footer */
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .about-widget {
+        grid-column: span 2;
+        max-width: 100%;
+    }
+
+    .developer-description {
+        max-width: 100%;
+    }
+}
+
+/* ==================================================
+   7. LARGE MOBILE (Max-width: 768px)
+   ================================================== */
+@media screen and (max-width: 768px) {
+    .header-container {
+        padding: 0 1.5rem;
+    }
+
+    /* Hide Desktop Nav for Mobile */
+    .nav-list {
+        display: none; 
+    }
+
+    .hero {
+        padding-top: 100px;
+    }
+
+    .hero-title {
+        font-size: 2.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    /* 1 Card per row for Mobile */
+    .rounded-cards-grid,
+    .course-grid,
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* 1 Column for Footer */
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding-bottom: 40px;
+    }
+
+    .about-widget {
+        grid-column: span 1;
+    }
+
+    .section-title {
+        font-size: 2.25rem;
+    }
+
+    .section-header {
+        margin-bottom: 40px;
+    }
+
+    .cta-title {
+        font-size: 2.25rem;
+    }
+}
+
+/* ==================================================
+   8. MEDIUM MOBILE (Max-width: 576px)
+   ================================================== */
+@media screen and (max-width: 576px) {
+    section {
+        padding: 60px 0;
+    }
+
+    .section-container, 
+    .footer-container {
+        padding: 0 1.5rem;
+    }
+
+    .brand-name {
+        font-size: 1.2rem;
+    }
+
+    .btn-large {
+        width: 100%;
+        padding: 16px 24px;
+        font-size: 1.05rem;
+    }
+
+    .course-details {
+        padding: 1.5rem;
+    }
+
+    .feature-card,
+    .upcoming-course-card,
+    .benefit-card {
+        padding: 1.5rem;
+    }
+
+    .hero-actions {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .cta-container {
+        padding: 0 1.5rem;
+    }
+
+    /* Adjust animations for mobile to prevent performance issues */
+    .hero-actions, .cta-btn {
+        animation: none;
+    }
+}
+
+/* ==================================================
+   9. SMALL MOBILE (Max-width: 375px)
+   ================================================== */
+@media screen and (max-width: 375px) {
+    .header-container {
+        padding: 0 1rem;
+    }
+
+    .btn-theme-toggle {
+        width: 38px;
+        height: 38px;
+    }
+
+    .hero-title {
+        font-size: 2.25rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .card-title {
+        font-size: 1.15rem;
+    }
+
+    .skills-list {
+        gap: 8px;
+    }
+
+    .skill-item {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+    }
+}
+
+/* ==================================================
+   10. VERY SMALL MOBILE (Max-width: 320px)
+   ================================================== */
+@media screen and (max-width: 320px) {
+    .brand-name {
+        font-size: 1rem;
+    }
+
+    .brand-logo {
+        height: 32px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .section-container {
+        padding: 0 1rem;
+    }
+
+    .course-title {
+        font-size: 1.2rem;
+    }
+
+    .coming-soon-badge {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+    }
+
+    .btn-large {
+        padding: 14px 20px;
+        font-size: 0.95rem;
+    }
+}
+
+/* ==================================================
+   11. ACCESSIBILITY & SAFE FALLBACKS (Desktop View on Mobile)
+   ================================================== */
+/* Ensures elements remain legible even if forced into desktop mode on small screens */
+.course-details, .feature-card, .benefit-card {
+    min-width: 0; /* Prevents flex/grid blowouts */
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Maintain touch target sizes */
+button, .btn, .nav-link, .social-link, .footer-link-item a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+}
